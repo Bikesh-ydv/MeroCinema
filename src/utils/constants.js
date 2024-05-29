@@ -1,0 +1,1 @@
+export const netflixUrl="https://assets.nflxext.com/ffe/siteui/acquisition/home/nflxlogo.png";
