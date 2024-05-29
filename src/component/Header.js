@@ -1,8 +1,8 @@
 const Header =()=>{
     return(
-        <div>
+        <div className="absolute w-screen px-12 py-4 bg-gradient-to-b from-black z-10">
             <img
-            className="absolute w-40 ml-44 mt-4 bg-gradient-to-b from-black z-10"
+            className=" w-40 "
             src="https://assets.nflxext.com/ffe/siteui/acquisition/home/nflxlogo.png"></img>
         </div>
     )

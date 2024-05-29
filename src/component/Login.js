@@ -5,12 +5,17 @@ import { Validateform } from "../utils/validateform";
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login=()=>{
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [signIn, setSignIn]= useState(true);
     const [errorMessage, setErrorMessage]=useState(null);
-    // const name = useRef(null);
+    const name = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
 
@@ -23,15 +28,25 @@ const Login=()=>{
         //Signing up users
         createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
           .then((userCredential) => {
-            // Signed up 
             const user = userCredential.user;
-            console.log(user);
+            updateProfile(auth.currentUser, {
+              displayName: name.current.value, 
+            }).then(() => {
+              // Profile updated!
+              const {uid,email,displayName} = auth.currentUser;
+              dispatch(addUser({uid:uid, email:email, displayName:displayName}));
+
+              navigate("/browse");
+            }).catch((error) => {
+              // An error occurred
+              // ...
+            });
      
           })
+
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorMessage);
        
           });
     }
@@ -42,7 +57,7 @@ const Login=()=>{
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           const user = userCredential.user;
-          // ...
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -72,7 +87,7 @@ const Login=()=>{
                    <h1 className="text-3xl text-white font-bold p-5">{(!signIn ? "Sign Up" : "Sign In")}</h1>
                     
                    { (!signIn) && (  <input 
-                //    ref={name}
+                   ref={name}
                     className="p-3 my-3 mx-7 w-80 rounded text-white  bg-gray-900 border border-white"
                     type="text" placeholder="Enter your name "></input>
                     )
