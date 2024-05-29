@@ -2,6 +2,9 @@ import Header from "./Header";
 import Banner from "../images/Banner.jpg"
 import { useRef, useState } from "react";
 import { Validateform } from "../utils/validateform";
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login=()=>{
 
@@ -14,6 +17,41 @@ const Login=()=>{
  const handleForm =()=>{
     const message = Validateform( email.current.value,password.current.value)
    setErrorMessage(message);
+   if(message) return;
+   if(!signIn)
+    {   
+        //Signing up users
+        createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+          .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            console.log(user);
+     
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+       
+          });
+    }
+    else
+    {
+         //signIn logic
+     
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " "+ errorMessage);
+        });
+      
+
+    }
 
  }
 
@@ -36,7 +74,7 @@ const Login=()=>{
                    { (!signIn) && (  <input 
                 //    ref={name}
                     className="p-3 my-3 mx-7 w-80 rounded text-white  bg-gray-900 border border-white"
-                    type="email" placeholder="Enter your name "></input>
+                    type="text" placeholder="Enter your name "></input>
                     )
                 }
                     <input 
