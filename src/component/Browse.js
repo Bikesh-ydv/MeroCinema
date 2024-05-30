@@ -2,6 +2,7 @@ import Header from "./Header";
 import Profile from "../images/userProfile.jpeg"
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import useNowPlayingMovie from "../hooks/useNowPlayingMovies";
 
 
 const Browse =()=>{
@@ -13,9 +14,9 @@ const handleSignOut = ()=>{
  }).catch((error) => {
   // An error happened.
  });
-
  }
 
+ useNowPlayingMovie();
     return(
         <div>
             <Header/>
