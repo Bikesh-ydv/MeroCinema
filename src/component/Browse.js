@@ -1,44 +1,23 @@
 import Header from "./Header";
-import Profile from "../images/userProfile.jpeg"
-import { signOut } from "firebase/auth";
-import { auth } from "../utils/firebase";
 import useNowPlayingMovie from "../hooks/useNowPlayingMovies";
-
+import MainContainer from "./TopContainer";
+import SecondayContainer from "./SecondaryContainer";
+import usePopularMovie from "../hooks/usePopularMovie";
+import useTopRatedMovie from "../hooks/useTopRatedMovie";
+import useUpcomingMovie from "../hooks/useUpcomingMovie";
 
 const Browse =()=>{
 
-
-const handleSignOut = ()=>{
- signOut(auth).then(() => {
-  
- }).catch((error) => {
-  // An error happened.
- });
- }
-
  useNowPlayingMovie();
+ usePopularMovie();
+ useTopRatedMovie();
+ useUpcomingMovie();
     return(
         <div>
             <Header/>
+            <MainContainer/>
+            <SecondayContainer/>
     
-        
-        
-        <div className="flex justify-end space-x-8 px-6 py-4 ">
-            <img 
-            className="w-12 h-12 z-10"
-            src={Profile}></img>
-          
-
-          <button className=" h-12 px-3 text-bold bg-red-500 text-white text-xl z-10"
-            onClick={handleSignOut}>Sign Out</button>
-          </div>
-        
-       
-       
-
-      
-
-      
         </div>
     )
 }
