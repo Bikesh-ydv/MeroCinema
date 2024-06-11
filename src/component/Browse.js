@@ -6,14 +6,25 @@ import usePopularMovie from "../hooks/usePopularMovie";
 import useTopRatedMovie from "../hooks/useTopRatedMovie";
 import useUpcomingMovie from "../hooks/useUpcomingMovie";
 import useTrendingMovie from "../hooks/useTrendingMovie";
+import useActionMovie from "../hooks/useActionMovie";
+import useAnimationMovie from "../hooks/useAnimationMovie";
+import useComedyMovie from "../hooks/useComedyMovie";
+import useDocumenatryMovie from "../hooks/useDocumentary";
+import useRomanceMovie from "../hooks/useRomanceMovie";
+import useHorrorMovie from "../hooks/useHorrorMovie";
 
 const Browse =()=>{
 
  useNowPlayingMovie();
- usePopularMovie();
  useTopRatedMovie();
  useUpcomingMovie();
  useTrendingMovie();
+ useActionMovie();
+ useAnimationMovie();
+ useComedyMovie();
+ useDocumenatryMovie();
+ useRomanceMovie();
+ useHorrorMovie();
     return(
         <div>
             <Header/>

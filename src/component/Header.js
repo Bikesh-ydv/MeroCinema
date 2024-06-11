@@ -54,20 +54,13 @@ useEffect( () => {
             src={NETFLIX_URL}></img>
 
            { user && 
-           ( <div className="flex justify-between  p-2 w-3/4">
-             <div>
-            <ul className="text-white flex p-2 float-start space-x-5 cursor-pointer">
-              <li className="text-xl">Home</li>
-              <li className="text-xl">TV Shows</li>
-              <li className="text-xl">Movies</li>
-              </ul>
-              </div>
-              <div className="flex">
+           ( <div className="flex justify-end p-2 w-3/4">
+              <div className="flex pr-6 ">
                 <h1 className=" text-white text-2xl p-2 font-bold">Welcome,</h1>
                 <span className="text-yellow-500 text-2xl font-semibold py-2 px-1">{user.displayName}</span>
               </div>
             
-            <div className="flex relative z-1 pr-20  cursor-pointer">
+            <div className="flex relative z-1 pr-12  cursor-pointer">
               
             <img 
             onClick={handleVisibility}
@@ -75,11 +68,7 @@ useEffect( () => {
             src={Profile}>
             </img>
             <div className="mt-2 p-1 ">
-            <svg 
-            className=""
-            width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down" fill="white" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-</svg>
+           <img src={Caret}></img>
         </div>
             {
               toggle &&

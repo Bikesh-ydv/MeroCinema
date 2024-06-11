@@ -10,11 +10,12 @@ if(!movies) return
 // console.log(rand);
 const mainMovie = movies[10];
 const {original_title, overview,id}=mainMovie;
+console.log(id);
 
     return(
         <div>
            
-           <VideoTitle title={original_title} overview={overview}/>
+           <VideoTitle title={original_title} overview={overview} movieId={id}/>
            <BackgroundVideo movieId={id} />
         </div>
     )
