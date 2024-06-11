@@ -8,7 +8,7 @@ const movies = useSelector(store=>store.movies?.nowPlayingMovie);
 if(!movies) return
 // let rand = Math.floor(Math.random()*movies.length);
 // console.log(rand);
-const mainMovie = movies[9];
+const mainMovie = movies[10];
 const {original_title, overview,id}=mainMovie;
 
     return(

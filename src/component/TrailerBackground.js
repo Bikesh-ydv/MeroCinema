@@ -13,7 +13,7 @@ const BackgroundVideo = ({movieId})=>{
            className="w-screen object-cover aspect-video"
         //    width="560"
         //    height="315" 
-           src={"https://www.youtube.com/embed/"+trailerVideo?.key+"?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1" } 
+           src={"https://www.youtube.com/embed/"+trailerVideo?.key+"?autoplay=1&mute=1&controls=0&loop=1&playlist="+trailerVideo?.key } 
            title="YouTube video player" 
            loading="lazy"
            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
