@@ -79,7 +79,7 @@ const Login=()=>{
             </div>
                 <form 
                 onSubmit={(e)=>e.preventDefault()}
-                className="my-20  md:p-5 mx-auto w-[90%] right-0 left-0 md:w-1/3 bg-gray-900 opacity-90 absolute">
+                className="my-20  md:p-5 mx-auto w-[95%] right-0 left-0 md:w-1/3 bg-gray-900 opacity-90 absolute">
                    <h1 className="text-3xl text-white font-semibold p-5">{(!signIn ? "Sign Up" : "Sign In")}</h1>
                     
                    { (!signIn) && (  <input 
