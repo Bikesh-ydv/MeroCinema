@@ -5,7 +5,7 @@ const MovieList = ({category,movies})=>{
     
     return(
         <div className="p-4 bg-black">
-            <h1 className="text-3xl text-white font-semibold p-2">{category}</h1>
+            <h1 className="md:text-3xl text-xl text-white font-semibold p-2">{category}</h1>
             <div className="flex overflow-x-auto no-scrollbar">
                 <div className="flex">
                 { movies?.map((movie)=>(
@@ -15,7 +15,7 @@ const MovieList = ({category,movies})=>{
                 }
             </div>
             </div>
-      
+     
         </div>
     )
 }

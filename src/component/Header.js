@@ -48,33 +48,33 @@ useEffect( () => {
   
 
     return(
-        <div className="absolute w-screen flex justify-between p-8 py-2 bg-gradient-to-b from-black z-10">
+        <div className="absolute w-screen flex justify-between md:p-8 md:py-2 bg-gradient-to-b from-black z-10">
             <img
-            className=" w-40 "
+            className=" md:w-40 w-[40%] "
             src={NETFLIX_URL}></img>
 
            { user && 
            ( <div className="flex justify-end p-2 w-3/4">
               <div className="flex pr-6 ">
-                <h1 className=" text-white text-2xl p-2 font-bold">Welcome,</h1>
-                <span className="text-yellow-500 text-2xl font-semibold py-2 px-1">{user.displayName}</span>
+                <h1 className=" text-white text-md md:text-2xl p-2 font-medium md:font-bold">Welcome,</h1>
+                <span className="text-yellow-500 text-md md:text-2xl font-semibold py-2 md:px-1">{user.displayName}</span>
               </div>
             
-            <div className="flex relative z-1 pr-12  cursor-pointer">
+            <div className="flex relative z-1 md:pr-12  cursor-pointer">
               
             <img 
             onClick={handleVisibility}
             className="w-8 h-8 rounded-sm cursor-pointer "
             src={Profile}>
             </img>
-            <div className="mt-2 p-1 ">
+            <div className="mt-2 md:p-1 ">
            <img src={Caret}></img>
         </div>
             {
               toggle &&
             (<div 
-            className=' z-1 w-full -left-8  bg-gray-900 rounded-md p-2 px-4 absolute top-[90%]'
-            ><p className="text-white text-lg font-medium "
+            className=' z-1 w-full -left-8  md:bg-gray-900  rounded-md p-1 px-3 md:p-2 md:px-4 absolute top-[90%]'
+            ><p className="text-white  md:text-lg font-medium  "
             onClick={handleSignOut}
             >SignOut</p>
             </div>

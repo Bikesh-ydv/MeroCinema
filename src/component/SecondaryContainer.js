@@ -8,7 +8,7 @@ const SecondayContainer = ()=>{
    
     return(
         <div className="bg-black ">
-            <div className="-mt-40 ">
+            <div className="md:-mt-40 -mt-20">
            <MovieList category={"Now playing"} movies={movies.nowPlayingMovie}/> 
            <MovieList category={"Romance"} movies={movies.romanceMovie}/>
            <MovieList category={"Horror"} movies={movies.horrorMovie}/>

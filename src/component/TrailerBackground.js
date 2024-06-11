@@ -8,7 +8,7 @@ const BackgroundVideo = ({movieId})=>{
     useMovieTrailer({movieId});
     
     return(
-        <div className="w-full">
+        <div className="w-full pt-12 md:p-0">
            <iframe 
            className="w-screen object-cover aspect-video"
         //    width="560"
